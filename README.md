@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Triple-d: High-quality Training Data Creation through Denoising Distant Supervision</h1>
+<h1>Triple-d: Denoising Distant Supervision for High-quality Data Creation</h1>
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/DAISYzxy/Triple-d)
 [![GitHub Issues](https://img.shields.io/github/issues/DAISYzxy/Triple-d.svg)](https://github.com/DAISYzxy/Triple-d/issues)
@@ -11,7 +11,7 @@
 
 <img src="fig/triple-d_exp.png" width="1000px">
 
-We present Triple-d, a high-quality data creation technique that denoises distant supervision through adaptive pattern replacement in input instances and further denoises them using a non-parametric model with instance normalization. We formulate the adaptive pattern replacement task as a maximum-profit bipartite graph problem, determining which entity should be replaced in the input. Edge profits are assigned through the statistical distribution, and we propose an approximation algorithm as a solution. To address the lack of ground truth, we employ a greedy algorithm with a K-Means strategy and introduce instance normalization to enhance the performance of decision boundary instances. Additionally, we optimize the bottleneck full neighbors retrieval algorithm to $\mathcal{O}(N\log N)$ in the non-parametric denoising model, which consists of three building blocks. Extensive experiments on real-world datasets demonstrate the effectiveness and efficiency of our proposed method, Triple-d.
+In this paper, we introduce Triple-d, a denoising distant supervision technique designed to create high-quality data. This method involves adaptive pattern replacement in input instances and further denoising using a non-parametric model with scalable instance normalization. Specifically, we formulate the adaptive pattern replacement task as a maximum-profit bipartite graph problem, determining which entity should be replaced in the input. Edge profits are assigned through its statistical distribution, and we propose an approximation algorithm as a solution. To address the lack of ground truth, we employ a greedy algorithm with a K-Means strategy and introduce instance normalization to enhance the performance of decision boundary instances. Additionally, we optimize the bottleneck full neighbors retrieval algorithm to $\mathcal{O}(N\log N)$ in the non-parametric denoising model, which consists of three building blocks. Extensive experiments on real-world datasets demonstrate the effectiveness and efficiency of our proposed method, Triple-d.
 
 
 
