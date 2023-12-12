@@ -1,6 +1,7 @@
 from binomial_replace import *
 from cpt_text_embedding import *
 from clustering import *
+from utils import *
 import argparse
 
 # 75% True Label (/25% Noise) Experiments
@@ -32,6 +33,7 @@ def run_pipeline(path="data/"):
         example = pd.read_csv(path_rel)
         # Require the billing account to continously run the API
         example['ada_embedding'] = example["sen"].apply(lambda x: get_embedding(x, model='text-embedding-ada-002'))
+        example.to_csv(save_rel, index=False)
     
         # (2) Model Fitting
     for rel in tqdm(relation_list):
@@ -44,7 +46,7 @@ def run_pipeline(path="data/"):
 
 
 # Test the algorithm performance
-def test(path="data/"):
+def test(path):
     exp_cluster = pd.read_csv(path)
     label_dict = retrieve_label(exp_cluster)
     cluster0_idx, cluster1_idx = fit(exp_cluster, label_dict, 100, 0.88)

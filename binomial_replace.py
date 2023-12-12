@@ -2,6 +2,8 @@ from tqdm import tqdm
 from utils import *
 from numpy import *
 from scipy.stats import binom
+import random
+import time
 
 
 
@@ -51,6 +53,8 @@ def get_frequency(path):
     dataset_pattern = dict()
     dataset_entity = dict()
     for relation in relation_list:
+        print(relation)
+        start_time = time.time()
         tmp_df = pd.read_csv(path + relation)
         dataset_pattern[relation] = dict()
         dataset_entity[relation] = dict()
@@ -68,6 +72,9 @@ def get_frequency(path):
             if pattern in dataset_entity[relation].keys():
                 for entity in dataset_entity[relation][pattern].keys():
                     dataset_entity[relation][pattern][entity] = int(dataset_entity[relation][pattern][entity] * 100 / len(tmp_df))
+        end_time = time.time()
+        total_time = end_time - start_time
+        print("Total running time:", total_time, "seconds")
     return dataset_pattern, dataset_entity
 
 
@@ -132,6 +139,8 @@ def binomial_value_calculate(relation_list, path="data/"):
     dataset_pattern, dataset_entity = get_frequency(path)
     value = dict()
     for relation in relation_list:
+        print(relation)
+        start_time = time.time()
         value[relation] = dict()
         for pattern in tqdm(ner_dict.keys()):
             value[relation][pattern] = dict()
@@ -145,6 +154,9 @@ def binomial_value_calculate(relation_list, path="data/"):
                         entity_K = retrieve_threshold_K(path, dataset_entity, entity, pattern)
                         entity_v = step_func(dataset_entity[relation][pattern][entity] - entity_K)
                         value[relation][pattern][entity] = entity_v
+        end_time = time.time()
+        total_time = end_time - start_time
+        print("Total running time:", total_time, "seconds")
     json_str = json.dumps(value)
     with open(path+'binomial_value.json', 'w') as json_file:
         json_file.write(json_str)

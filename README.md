@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Triple-d: Denoising Distant Supervision for High-quality Data Creation</h1>
+<h1>Triple-d: Denoising Distant Supervision for High-quality Data Creation (ICDE' 2024)</h1>
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/DAISYzxy/Triple-d)
 [![GitHub Issues](https://img.shields.io/github/issues/DAISYzxy/Triple-d.svg)](https://github.com/DAISYzxy/Triple-d/issues)
